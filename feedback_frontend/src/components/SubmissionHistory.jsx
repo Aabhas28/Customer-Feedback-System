@@ -10,6 +10,8 @@ const SubmissionHistory = () => {
     const [totalPages, setTotalPages] = useState(1);
     const [loading, setLoading] = useState(false);
 
+     // Function to fetch feedback data
+
     const fetchFeedbacks = async () => {
         if (!productId) {
             toast.error("Please select a product to view feedback.");
@@ -18,6 +20,7 @@ const SubmissionHistory = () => {
 
         setLoading(true);
         try {
+            // Make a GET request to fetch feedback data for the selected product
             const response = await axios.get(`http://localhost:3000/feedback/product/${productId}?page=${page}&limit=5`);
             setFeedbacks(response.data.feedbacks);
             setTotalPages(response.data.totalPages);
@@ -28,7 +31,7 @@ const SubmissionHistory = () => {
             setLoading(false);
         }
     };
-
+  // Effect to fetch feedback data when productId or page changes
     useEffect(() => {
         if (productId) {
             fetchFeedbacks();

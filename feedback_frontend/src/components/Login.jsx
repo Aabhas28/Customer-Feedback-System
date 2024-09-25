@@ -10,6 +10,7 @@ const Login = () => {
 
     const navigate = useNavigate()
 
+    // Function to handle form submission
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -17,12 +18,14 @@ const Login = () => {
             email: email,
             password: password
         }
-
+       
+         // Make a POST request to the login endpoint
         axios.post('http://localhost:3000/user/login', payload)
             .then((res) => {
                 setLoading(false)
                 toast("Login Successful");
                 console.log("Login done", res);
+                // Store the token received from the server in local storage
                 localStorage.setItem('token', JSON.stringify(res.data.token))
                 navigate("/feedback")
             })

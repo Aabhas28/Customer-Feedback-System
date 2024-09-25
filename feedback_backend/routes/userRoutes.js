@@ -5,7 +5,6 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken')
 //Register
 
-const secreteKey =process.env.SECRETOKEN
 
 router.post('/register', async (req, res) => {
     try {

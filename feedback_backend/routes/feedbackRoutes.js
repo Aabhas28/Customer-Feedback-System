@@ -1,4 +1,3 @@
-// routes/feedbackRoutes.js
 const express = require('express');
 const router = express.Router();
 const Feedback = require('../modal/Feedback');
@@ -55,7 +54,8 @@ router.get('/product/:productId', async (req, res) => {
       .populate('user', 'name') // Populate the 'user' field, only selecting 'name'
       .skip((page - 1) * limit)
       .limit(limit)
-      .sort({ createdAt: -1 });
+      .sort({ createdAt: -1 })
+      .lean();
         
        
         console.log(feedbacks);
@@ -75,15 +75,13 @@ router.get('/product/:productId', async (req, res) => {
     }
   });
 
-  // routes/feedbackRoutes.js
 router.get('/product/rating/:productId', async (req, res) => {
     try {
       const { productId } = req.params;
   
-      // Fetch only the ratings for the specified product
+      // Fetch only the ratings for the specified product for performancee optimizationn
       const ratings = await Feedback.find({ product: productId }).select('rating -_id');
       console.log(ratings)
-      // Select only the 'rating' field, exclude '_id'
   
       // Calculate the average rating
       const totalRatings = ratings.reduce((acc, feedback) => acc + feedback.rating, 0);
@@ -91,7 +89,7 @@ router.get('/product/rating/:productId', async (req, res) => {
   
       res.status(200).json({
         status: true,
-        averageRating, // Return the average rating
+        averageRating, 
       });
     } catch (error) {
       res.status(500).json({ status: false, message: "Failed to retrieve ratings", error: error.message });

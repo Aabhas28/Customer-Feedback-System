@@ -14,9 +14,11 @@ export default function App() {
   return (
     <>
       <ToastContainer />
-      <Router>
+      <Router> {/* Setting up the Router for the application */}
         <Header />
-        <Routes>
+        <Routes>{/* Defining the routes for the application */}
+
+        {/* Protected routes that require authentication */}
 
           <Route element={<ProtectedRoute />}>
             <Route path="/feedback" element={<FeedbackForm />} />
