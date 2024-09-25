@@ -18,27 +18,26 @@ The Customer Feedback System is a web application that allows users to submit fe
 
 ## Setup Instructions
 
-1. Clone the repository:
-
-  ```bash
+1. Install dependencies:
+    ```bash
     git clone https://github.com/Aabhas28/Customer-Feedback-System.git
     cd Customer-Feedback-System
-    
     ```
 
 ### Backend Setup
 
-
+1. Navigate to the backend directory:
     ```bash
     cd feedback_backend
     ```
+
 
 2. Install dependencies:
     ```bash
     npm install
     ```
 
-3.   `.env` file is already present(for quick setup())
+3.   `.env` file is already present(for quick setup)
 
 4. Start the server:
     ```bash
@@ -47,7 +46,7 @@ The Customer Feedback System is a web application that allows users to submit fe
 
 ### Frontend Setup
 
-1. Navigate to the frontend directory:
+1. Navigate to the frontend directory:(open another terminal)
     ```bash
     cd feedback_frontend
     ```
@@ -61,5 +60,6 @@ The Customer Feedback System is a web application that allows users to submit fe
     ```bash
     npm run dev
     ```
+
 
 
