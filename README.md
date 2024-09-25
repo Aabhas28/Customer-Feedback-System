@@ -18,13 +18,18 @@ The Customer Feedback System is a web application that allows users to submit fe
 
 ## Setup Instructions
 
+1. Clone the repository:
 
+  ```bash
+    git clone https://github.com/Aabhas28/Customer-Feedback-System.git
+    cd Customer-Feedback-System
+    
+    ```
 
 ### Backend Setup
 
-1. Clone the repository:
+
     ```bash
-    git clone https://github.com/Aabhas28/Customer-Feedback-System.git
     cd feedback_backend
     ```
 
